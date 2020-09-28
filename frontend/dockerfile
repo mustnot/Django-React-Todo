@@ -1,0 +1,11 @@
+FROM node:alpine
+
+ENV FRONTEND_DIR /app/frontend
+
+WORKDIR ${FRONTEND_DIR}
+COPY . ${FRONTEND_DIR}/
+
+RUN npm install
+
+EXPOSE 3000
+CMD ["yarn", "start"]
