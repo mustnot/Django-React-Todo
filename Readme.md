@@ -2,7 +2,7 @@
 
 > ✅ [React + Django To-Do App | Django Rest Framework - Dennis Ivy](https://www.youtube.com/watch?v=W9BjUoot2Eo&t=1924s)
 
-위 영상을 보며 공부한 코드로 영상과 달리 TypeScript로 React App을 만들었고, Docker-Compose를 적용해보았습니다.
+영상을 보며 공부한 내용으로 Javascript를 TypeScript로 변경하여 React App을 만들었고, Docker-Compose를 적용했다.
 
 <br>
 
