@@ -57,7 +57,7 @@ class App extends React.Component<{}, AppState> {
   fetchTasks() {
     console.log("fetching...");
 
-    fetch("http://127.0.0.1:8000/api/tasks/")
+    fetch("http://localhost/api/tasks/")
       .then((response) => response.json())
       .then((data) =>
         this.setState({
@@ -85,11 +85,11 @@ class App extends React.Component<{}, AppState> {
 
     const csrftoken = this.getCookie("csrftoken");
 
-    let url: string = "http://127.0.0.1:8000/api/tasks/";
+    let url: string = "http://localhost/api/tasks/";
     let method: string = "POST";
 
     if (this.state.editing === true) {
-      url = `http://127.0.0.1:8000/api/tasks/${this.state.activeItem.id}/`;
+      url = `http://localhost/api/tasks/${this.state.activeItem.id}/`;
       method = "PUT";
       this.setState({
         editing: false,
@@ -127,7 +127,7 @@ class App extends React.Component<{}, AppState> {
   }
 
   handleDelete(task: Task) {
-    let url: string = `http://127.0.0.1:8000/api/tasks/${task.id}`;
+    let url: string = `http://localhost/api/tasks/${task.id}`;
     const csrftoken: string = this.getCookie("csrftoken");
 
     fetch(url, {
@@ -144,7 +144,7 @@ class App extends React.Component<{}, AppState> {
   strikeUnstrike(task: Task) {
     task.completed = !task.completed;
 
-    let url: string = `http://127.0.0.1:8000/api/tasks/${task.id}/`;
+    let url: string = `http://localhost/api/tasks/${task.id}/`;
     const csrftoken = this.getCookie("csrftoken");
 
     fetch(url, {

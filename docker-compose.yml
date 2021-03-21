@@ -1,9 +1,15 @@
 version: "3"
 
 services:
-  django:
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - "80:80"
+
+  backend:
     build: ./backend
-    command: ["pipenv", "run", "start"]
+    container_name: backend
     volumes:
       - ./backend:/app/backend
     ports:
@@ -11,7 +17,7 @@ services:
 
   frontend:
     build: ./frontend
-    command: ["yarn", "start"]
+    container_name: frontend
     volumes:
       - ./frontend:/app/frontend
       - node_modules:/app/frontend/node_modules

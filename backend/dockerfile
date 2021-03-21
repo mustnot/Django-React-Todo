@@ -1,12 +1,13 @@
 FROM python:3.7
 
-RUN pip install pipenv
 ENV BACKEND_DIR /app/backend
-
-COPY Pipfile Pipfile.lock ${BACKEND_DIR}/
 WORKDIR ${BACKEND_DIR}
 
-RUN pipenv install
+RUN pip install --upgrade pip setuptools wheel
 
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+
+COPY . .
 EXPOSE 8000
-CMD ["pipenv", "run" "start"]
+CMD ["uwsgi", "uwsgi.ini"]
